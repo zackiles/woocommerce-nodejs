@@ -1,4 +1,4 @@
-var config = require('./config.json'),
+var config = require('./config'),
     unirest = require('unirest'),
     Q = require('q'),
     fs = require('fs'),
