@@ -18,3 +18,37 @@ module.exports = {
   getProductMetaData : getProductMetaData
 };
 ```
+
+***EXAMPLE***
+- General
+```
+// grab all strain products from liftmj's woocommerce
+WooUtil.getProducts()
+
+// extend the strain products with extra metadata found in wordpress posts, reviews, and comments
+.then(extendProducts)
+
+// write the strain products to disk
+.then(saveProducts)
+
+// format the strain products and upload them to firebase
+.catch(console.error)
+
+.done(function(result){
+  console.log(result);
+});
+```
+- Filters
+```
+var saveProducts = function(products){
+  console.log('Writing', products.length,' strain products to disk');
+  return WooUtil.filterCollection(products, WooUtil.filters.saveProductFilter);
+};
+
+var extendProducts = function(products){
+  console.log('Extending strain meta data');
+  return WooUtil.filterCollection(products, WooUtil.filters.extendProductFilter);
+};
+```
+
+
