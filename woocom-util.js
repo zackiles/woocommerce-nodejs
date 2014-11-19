@@ -1,4 +1,4 @@
-var config = require('./config'),
+var config = require('./config.json'),
     unirest = require('unirest'),
     Q = require('q'),
     fs = require('fs'),
@@ -173,7 +173,7 @@ function getProductFullById(id, callback) {
 
 function getProductMetaData(product, callback){
   var defer = Q.defer();
-  unirest.get('http://liftmj.com/product/' + product.permalink + '?json=1')
+  unirest.get(config.websiteUrl + '/' + product.permalink + '?json=1')
   .header({'Accepts': 'application/json'})
   .as.json(function (response) {
     if (!response.body){return defer.reject(response);}
