@@ -3,6 +3,8 @@ woocommerce-nodejs
 
 Some utility functions to use with the WooCommerce API and NodeJS. Each function can also take a filter. I have two filters right now, saveProductFilter and extendProductFilter. saveProduct will dump the results of any function to file in JSON. extendProductFilter will attach metadata to each product, like customer reviews, etc.
 
+Each function can be used with a normal Node style callback, or a promise wrapped with Q. The examples below use Q.
+
 Set config.js with the relevant API keys for WooCommerce.
 
 ***EXPORTS***
