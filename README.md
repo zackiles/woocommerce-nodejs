@@ -31,9 +31,7 @@ WooUtil.getProducts()
 // write the strain products to disk
 .then(saveProducts)
 
-// format the strain products and upload them to firebase
 .catch(console.error)
-
 .done(function(result){
   console.log(result);
 });
@@ -41,12 +39,12 @@ WooUtil.getProducts()
 - Filters
 ```
 var saveProducts = function(products){
-  console.log('Writing', products.length,' strain products to disk');
+  console.log('Writing', products.length,' products to disk');
   return WooUtil.filterCollection(products, WooUtil.filters.saveProductFilter);
 };
 
 var extendProducts = function(products){
-  console.log('Extending strain meta data');
+  console.log('Extending product meta data');
   return WooUtil.filterCollection(products, WooUtil.filters.extendProductFilter);
 };
 ```
